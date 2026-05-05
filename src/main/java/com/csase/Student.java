@@ -3,21 +3,21 @@ package com.csase;
 import java.util.Scanner;
 
 /*
- * Represents a student that with a study planner
+ * Represents a student with a study planner
  */
 public class Student {
 
-    private StudyPlanner planner;       // study planner
-    private Scanner scanner;            // scanner for user input
+    private StudyPlanner planner;
+    private Scanner scanner;
 
     /*
      * Sets study planner and scanner
      */
-    public Student {
+    public Student() {                    // ← fixed: added ()
         planner = new StudyPlanner();
         scanner = new Scanner(System.in);
     }
-    
+
     /*
      * Gets the student's choice and runs it until the student exits
      */
@@ -59,5 +59,13 @@ public class Student {
         System.out.print("Enter due date (YYYY-MM-DD): ");
         String dueDate = scanner.nextLine();
         planner.addAssignment(name, dueDate);
+    }
+
+    /*
+     * Entry point
+     */
+    public static void main(String[] args) {
+        Student student = new Student();
+        student.getChoice();
     }
 }
